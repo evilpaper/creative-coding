@@ -22,16 +22,26 @@
       const canvas = document.querySelector("canvas");
       const context = canvas.getContext("2d");
 
-      for (let i = 0; i < 5; i++) {
-        const width = 60;
-        const height = 60;
-        const gap = 10;
-        let x = 100 + (width + gap) * i;
-        let y = 100;
+      const width = 60;
+      const height = 60;
+      const gap = 10;
+      let x, y;
 
-        context.beginPath();
-        context.rect(x, y, width, height);
-        context.stroke();
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          x = 130 + (width + gap) * i;
+          y = 130 + (height + gap) * j;
+
+          context.beginPath();
+          context.rect(x, y, width, height);
+          context.stroke();
+
+          if (Math.random() > 0.5) {
+            context.beginPath();
+            context.rect(x + 8, y + 8, width - 16, height - 16);
+            context.stroke();
+          }
+        }
       }
     </script>
   </body>
